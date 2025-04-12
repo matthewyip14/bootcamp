@@ -1,0 +1,17 @@
+##iTerm2
+
+cd -entry the folder
+pwd -check current location
+code . -open VSCode
+ls
+git add .
+git commit -m "XXX"
+git push
+
+** must have "main" keyword on cmd **
+
+*******************VSCode**********************
+System.out.println(XXX);
+
+
+
