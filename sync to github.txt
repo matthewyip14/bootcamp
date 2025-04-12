@@ -11,6 +11,8 @@ git push
 ** must have "main" keyword on cmd **
 
 *******************VSCode**********************
+public static void main
+
 System.out.println(XXX);
 
 
