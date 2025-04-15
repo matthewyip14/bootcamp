@@ -40,7 +40,7 @@ public class DemoString {
     String name1 = "Vincent";
     System.out.println(name1.equals("Vincent"));
     System.out.println(name1.charAt(name1.length()/2));
-
+    System.out.println(" The middle character of " + name1 + " is " + name1.charAt(name1.length()/2));
 
   }
   

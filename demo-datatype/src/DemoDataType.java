@@ -86,7 +86,7 @@ public class DemoDataType {
         x2 = 7 + x4;
         System.out.println(x2);  //17
 
-        //! add 3 to itself
+        // add 8 to itself
         x2 = x2 + 8; // 25
         System.out.println(x2);
 
@@ -118,9 +118,9 @@ public class DemoDataType {
         // You intend to write int value 22億 into a long variable
         // l1 = 2_200_000_000; // system error
         l1 = 2_200_000_000L;
-        l1 = l1 +3L;
+        l1 = l1 + 3L;
         System.out.println(l1);
-        l1 = l1 +2_200_000_000L;
+        l1 = l1 + 2_200_000_000L;
         System.out.println(l1);
 
         // long + int -> long + long -> long
