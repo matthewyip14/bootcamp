@@ -19,5 +19,14 @@ public class Exercise {
      d1 = d1 / 7;
     System.out.println(d1);
 
+
+    int boo1 = 8;
+        boolean isOverThan7 = boo1 < 7;
+        System.out.println(isOverThan7);
+
+    char lastName = '龍';
+    System.err.println(lastName);
+
+
   }
 }
