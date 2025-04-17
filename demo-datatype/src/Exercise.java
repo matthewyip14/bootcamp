@@ -27,6 +27,19 @@ public class Exercise {
     char lastName = '龍';
     System.err.println(lastName);
 
+    int w = 0;
+    w--;
+    System.err.println(w); 
+    --w;
+    System.err.println(w);
+    w = w - 1;
+    System.err.println(w);
+    w -= 1;
+    System.err.println(w); 
+    
 
+    int age = 80;
+    int gender = 'M';
+    
   }
 }

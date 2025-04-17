@@ -60,10 +60,12 @@ public class DemoDataType {
 
         //Declaration and assignment
         int w = 10;
+        System.out.println(w);
 
         //! 2. double
         double d1 = 4.4;
         double d2 = 45678.999;
+        System.out.println(d1);
 
         System.out.println(d2);
 
@@ -129,8 +131,10 @@ public class DemoDataType {
 
         //
         int i8 = 9;
+        System.out.println(i8);
         //byte b9 = i8; // what is the type of i8? ooo... it is int, sorry not OK.
         byte b10 = 3; // direct value -> safe.
+        System.out.println(b10);
 
         //short s11 = i8; // unsafe.
 
@@ -139,6 +143,7 @@ public class DemoDataType {
 
         // boolean (either true of false)
         boolean b9 = true;
+        System.out.println(b9);
         b9 = false;
 
         int result = 10;

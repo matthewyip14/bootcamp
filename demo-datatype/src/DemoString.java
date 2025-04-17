@@ -2,7 +2,9 @@ public class DemoString {
   public static void main(String[] args) {
     // String is NOT primitive, which consist of a set of char values
     String s = "John";
+    System.out.println(s);
     String s2 = "Dear Sir,";
+    System.out.println(s2);
 
     // 8 Primitives -> store values ONLY
     // Sting -> Store values + functions
@@ -41,6 +43,11 @@ public class DemoString {
     System.out.println(name1.equals("Vincent"));
     System.out.println(name1.charAt(name1.length()/2));
     System.out.println(" The middle character of " + name1 + " is " + name1.charAt(name1.length()/2));
+
+
+
+
+
 
   }
   
