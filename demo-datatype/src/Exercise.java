@@ -85,6 +85,20 @@ public class Exercise {
       }
     }
 
+    // for + if
+
+    String m1 = "Matthew";
+    int index = 99;
+    for (int i = 0; i < m1.length(); i++) {
+      if (m1.charAt(i) == 't') {
+        System.out.println( "Yes it is " + m1.charAt(i) );
+      } else {
+        System.out.println( "you are not looking for " + m1.charAt(i) );
+      }
+    }
+      
+      
+    
 
   }
 }
