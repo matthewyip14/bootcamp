@@ -38,8 +38,53 @@ public class Exercise {
     System.err.println(w); 
     
 
-    int age = 80;
-    int gender = 'M';
+    //20250421//
+    //Studying if//
+    int h = 10;
+    if (h <= 10) {
+      System.out.println("Bearfast time!");
+    } else if (h > 10 && h <= 12) {
+      System.out.println("brunch time!");
+    } else {
+      System.out.println("Lunch time");
+    }
+     
+    // Gen z = age < 28
+    // Millennials = age >= 29 && <= 44
+    // Gen X = age > 45
     
+    int age = 37;
+    if (age < 29) {
+      System.out.println("Gen Z");
+    } else if (age >= 29 && age <= 44) {
+      System.out.println("Millennials");
+    } else {
+      System.out.println( "Gen Z");
+    }
+
+    // for
+    for (int i = 0; i < 3; i++) {
+      System.out.println("whatsup");
+    }
+    // for + if
+    for (int n = 1; n <11; n++) {
+      if (n % 2 == 0) {
+        System.out.println( n + " is even number" );
+      } else {
+        System.out.println( n + " is odd number" );
+      }
+    }
+
+    for ( int age1 = 25; age1 < 51; age1++) {
+      if (age1 < 29) {
+        System.out.println(age1 + " is Gen Z");
+      } else if ( age1 >= 29 && age1 <= 44 ) {
+        System.out.println(age1 + " is Millennials");
+      } else {
+        System.out.println(age1 + " is Gen x");
+      }
+    }
+
+
   }
 }
