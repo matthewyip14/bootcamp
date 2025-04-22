@@ -96,7 +96,16 @@ public class Exercise {
         System.out.println( "you are not looking for " + m1.charAt(i) );
       }
     }
-      
+     
+    // Loan 
+    // p = 10K; i = 2K; t = 12
+    // print each installment
+    int p = 10000; int i = 2000 ; int m = 12 ;
+    int l = p + i;
+    for (int t = 0; t < 13 ; t++) {
+      int b123 = l - t * (l / m ) ; System.out.println(b123);System.out.println("Intstallment" + t + " , amount is " + (l / m));
+    }
+
       
     
 
