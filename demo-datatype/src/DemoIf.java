@@ -106,5 +106,58 @@ public class DemoIf {
       System.out.println("thank you");
     }
 
+    // switch
+    char grade = 'B';
+    if (grade == 'A') {
+      System.out.println("Grade is A");
+    } else if ( grade == 'B') {
+      System.out.println("Grade is B"); // print
+    } else if ( grade == 'C') {
+      System.out.println("Grade is C"); // print
+    } else {
+      System.out.println("Fail."); // print
+    }
+
+    // Alternative
+    //!1. You should use "break" for all cases in switch statement
+    //!2. switch CANNOT check the range of the value
+    switch (grade) {
+      case 'A':
+      System.out.println("Grade is A");
+      case 'B':
+      System.out.println("Grade is B"); // print
+      case 'C':
+      System.out.println("Grade is C"); 
+      default:
+      System.out.println("Fail");
+    }
+
+    switch (grade) {
+      case 'A':
+      System.out.println("Grade is A");
+      break;
+      case 'B':
+      System.out.println("Grade is B"); // print
+      break;
+      case 'C':
+      System.out.println("Grade is C"); // print
+      break;
+      default:
+      System.out.println("Fail");
+    }
+
+    score = 85;
+    if (score >= 90) {
+      grade = 'A';
+    } else if (score >= 80 && score < 90) {
+      grade = 'B';
+    } else if (score >= 70 && score < 80) {
+      grade = 'C';
+    } else {
+      grade = 'F';
+    }
+
+    // You cannot use switch to handle the above scenario.
+
   }
 }
