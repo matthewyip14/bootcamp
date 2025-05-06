@@ -65,10 +65,10 @@ public class Account {
     System.out.println(a2.getBalance());
     System.out.println(a1.getBalance());
 
-    Account a3 = new Account("a0001", "johnwong", 900.0);
-    System.out.println(a3.getUserId());
-    System.out.println(a3.getName());
-    System.out.println(a3.getBalance());
+    Account a4 = new Account("a0001", "johnwong", 900.0);
+    System.out.println(a4.getUserId());
+    System.out.println(a4.getName());
+    System.out.println(a4.getBalance());
 
     // Local Variable
     // String userId = "123";

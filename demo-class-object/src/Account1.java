@@ -47,13 +47,13 @@ public class Account1 {
   
     // object reference
     // "new" -> create an object of Account
-    Account a1 = new Account1();
+    Account1 a1 = new Account1();
     a1.setBalance(100.0);
     System.out.println(a1.getBalance());
-    Account a2 = new Account1();
+    Account1 a2 = new Account1();
     a2.setBalance(200.0);
     System.out.println(a2.getBalance());
-    Account a3 = new Account1();
+    Account1 a3 = new Account1();
     a3.setBalance(300.0);
     a2 = a1;
     a2.setBalance(1000000.0);
@@ -62,7 +62,7 @@ public class Account1 {
     System.out.println(a2.getBalance());
     System.out.println(a1.getBalance());
 
-    Account a3 = new Account("a0001", "johnwong", 900.0);
+    Account a4 = new Account("a0001", "johnwong", 900.0);
     System.out.println(a3.getUserId());
     System.out.println(a3.getName());
     System.out.println(a3.getBalance());
@@ -73,11 +73,11 @@ public class Account1 {
   
 
   public static void main(String[] args) {
-    Account[] accounts = new Account[3]; // create Account Array Object
-    Account a1 = new Account();
-    Account a2 = new Account();
+    Account1[] accounts = new Account[3]; // create Account Array Object
+    Account1 a1 = new Account();
+    Account1 a2 = new Account();
     a2.setBalance(800.0);
-    Account a3 = new Account();
+    Account1 a3 = new Account();
     accounts[0] = a1;
     // accounts[0] = a1;
     accounts[1] = a2;

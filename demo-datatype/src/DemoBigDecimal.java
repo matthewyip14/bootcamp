@@ -61,7 +61,7 @@ public class DemoBigDecimal {
     // 0 divide x -> 0
     BigDecimal.valueOf(9.9).divide(BigDecimal.valueOf(0)); // error, Division by zero
 
-
+    double bmi = BigDecimal.valueOf(100).divide(BigDecimal.valueOf(1.75).
 
 
   }

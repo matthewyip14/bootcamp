@@ -72,29 +72,29 @@ public class DemoOperator {
     --w;
     w = w - 1;
     w -= 1;
-    System.err.println(w); // -4
+    System.out.println(w); // -4
 
     // +/- non 1 value
     int o = 3;
     o -= 4;
     o += 4;
-    System.err.println(o); // 3
+    System.out.println(o); // 3
 
     int q = 3;
     q = q * 3;
     q *= 3;
-    System.err.println(q); // 27
+    System.out.println(q); // 27
 
     int v = 27;
     v /= 3;
     v = v / 3;
-    System.err.println(v); // 3
+    System.out.println(v); // 3
 
     // Comparison
     // >, <, >=, <=, ==, !=
     int score = 91;
     boolean isGradeA = score >= 90;
-    System.err.println(isGradeA); // true
+    System.out.println(isGradeA); // true
 
     char gender = 'M';
     boolean isFemale = gender != 'M';
