@@ -27,11 +27,11 @@ public class Dept {
   public static void main(String[] args) {
     Dept dept = new Dept();
 
-    Staff staff1 = new Staff(80, 50);
-    Dept.add(staff1);
+    Staff ada = new Staff(80.0, 50);
+    dept.add(ada);
 
-    Staff billy = new staff(120, 30);
-    Dept.add(billy);
+    Staff billy = new Staff(120.0, 30);
+    dept.add(billy);
 
     System.out.println(dept.substotalOfDept());
 

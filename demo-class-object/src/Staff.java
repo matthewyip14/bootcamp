@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 public class Staff {
   private double workingHour;
   private double hourlyRate;
-  private int attendanceBonus;
+  private double attendanceBonus;
 
   public double getWorkingHour() {
     return this.workingHour;
@@ -22,21 +22,21 @@ public class Staff {
   public double getAttendanceBonus() {
     return this.attendanceBonus;
   }
-  public void setAttendanceBonus(int attendanceBonus) {
+  public void setAttendanceBonus(double attendanceBonus) {
     this.attendanceBonus = attendanceBonus;
   }
-  private Staff(double workingHour, double hourlyRate) {
+  public Staff(double workingHour, double hourlyRate) {
     this.workingHour = workingHour;
     this.hourlyRate = hourlyRate;
   }
 
-  private double payroll() {
+  public double payroll() {
     if (this.workingHour > 100) {
-      attendanceBonus = 1000;
+      this.attendanceBonus = 1000;
     } else {
-      attendanceBonus = 0;
+      this.attendanceBonus = 0;
     }
-    return this.workingHour * this.hourlyRate + attendanceBonus;
+    return BigDecimal.valueOf(this.workingHour).multiply(BigDecimal.valueOf(this.hourlyRate)).doubleValue() + attendanceBonus;
   } 
   
   public static void main(String[] args) {
