@@ -28,7 +28,7 @@ public class DemoLoop {
     int y = 2;
     for (int i = 0; i < 9; i++) {
       y = y * 2;
-    } System.err.println(y);
+    } System.out.println(y);
     
 
     // for + if
