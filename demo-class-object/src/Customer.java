@@ -71,12 +71,6 @@ public class Customer {
     System.out.println("length order : " + john.orders.length);
     System.err.println("checkoutAmount : " + john.orders[1].checkoutAmount());
     System.out.println("is John a VIP ? : " + john.isVIP());
-    
-
-
-
-
-
   }
 }
 
