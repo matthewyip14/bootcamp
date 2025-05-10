@@ -1,9 +1,10 @@
 import java.math.BigDecimal;
 
 public class Dept {
-  public String name;
+  private String name;
   private Staff[] staffs;
-  
+  private double substotalOfDept;
+
   public String getName() { 
     return this.name;
   }
@@ -27,6 +28,9 @@ public class Dept {
     }
     return total;
   }
+    public double getSubtotalOfDept() {
+      return this.substotalOfDept;
+    }
 
   public static void main(String[] args) {
     Dept[] depts = new Dept[1];

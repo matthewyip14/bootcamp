@@ -41,7 +41,7 @@ public class Company {
 
     Companys[0].add(depts[0]);
 
-    System.out.println(Companys[0].name, depts[0].name, depts[0].substotalOfDept());
+    System.out.println(Companys[0].name, depts[0].getName());
     
   }
 }
