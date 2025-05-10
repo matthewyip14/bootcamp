@@ -4,6 +4,7 @@ public class Company {
 
   public Company(String name) {
     this.name = name;
+    this.depts = new Dept[0];
   }
   public void add(Dept newDept) {
     Dept[] newDepts = new Dept[this.depts.length + 1];
@@ -26,18 +27,21 @@ public class Company {
     depts[0] = new Dept("Ops");
     System.out.println(depts[0].getName());
     depts[1] = new Dept("Fin");
+    System.out.println(depts[1].getName());
+    System.out.println("--- --- --- --- ---");
 
-    Staff dept1StaffA = new Staff("Ada", 99, 40);
-    depts[0].add(dept1StaffA);
+    Staff staffA = new Staff("Ada", 99, 40);
+    depts[0].add(staffA);
 
-    Staff dept1StaffB = new Staff("Billy", 200, 50);
-    depts[0].add(dept1StaffB);
+    Staff staffB = new Staff("Billy", 200, 50);
+    depts[0].add(staffB);
 
-    Staff dept1StaffC = new Staff("Carol", 150, 50);
-    depts[0].add(dept1StaffC);
+    Staff staffC = new Staff("Carol", 150, 50);
+    depts[0].add(staffC);
 
     Companys[0].add(depts[0]);
 
+    System.out.println(Companys[0].name, depts[0].name, depts[0].substotalOfDept());
     
   }
 }
