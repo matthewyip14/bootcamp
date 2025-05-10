@@ -5,11 +5,15 @@ public class Company {
   public Company(String name) {
     this.name = name;
   }
-
   public void add(Dept newDept) {
-    Dept[] newDepts = new Dept[this.depts.length];
-    ;
+    Dept[] newDepts = new Dept[this.depts.length + 1];
+    for (int i = 0; i < this.depts.length; i++) {
+      newDepts[i] = depts[i];
+    }
+    newDepts[newDepts.length - 1] = newDept;
+    this.depts = newDepts;
   }
+
   
   public static void main(String[] args) {
     Company[] Companys = new Company[1];
@@ -20,6 +24,7 @@ public class Company {
     Dept[] depts = new Dept[2];
 
     depts[0] = new Dept("Ops");
+    System.out.println(depts[0].getName());
     depts[1] = new Dept("Fin");
 
     Staff dept1StaffA = new Staff("Ada", 99, 40);
@@ -33,7 +38,6 @@ public class Company {
 
     Companys[0].add(depts[0]);
 
-    System.out.println(Companys[0].name);
     
   }
 }

@@ -41,6 +41,7 @@ public class Dept {
     Ops.add(staff2);
 
     System.out.println(depts[0].name);
+    System.out.println(depts[0].getName());
     System.out.println(Ops.substotalOfDept());
 
   }
