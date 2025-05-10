@@ -4,6 +4,10 @@ public class Dept {
   public String name;
   private Staff[] staffs;
   
+  public String getName() { 
+    return this.name;
+  }
+
   public Dept(String name) {
     this.name = name;
     this.staffs = new Staff[0];

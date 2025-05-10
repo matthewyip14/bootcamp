@@ -1,5 +1,3 @@
-import com.azul.crs.client.rework.jars.classmethods.ClassMethodsDetector;
-
 public class Company {
   private String name;
   private Dept[] depts;
@@ -34,7 +32,7 @@ public class Company {
     dept1.add(dept1StaffC);
 
     ABC.add(dept1);
-    System.out.println(ABC.name, ABC.dept1.name);
+    System.out.println(ABC.name, ABC.dept1.getName());
     System.out.println(dept1.substotalOfDept());
   }
 }
