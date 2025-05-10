@@ -22,14 +22,13 @@ public class Dept {
     this.staffs = newStaffs;
   }
   public double substotalOfDept() {
-    double total = 0.0;
     for (int i = 0; i < this.staffs.length; i++) {
-      total += this.staffs[i].payroll();
+      substotalOfDept += this.staffs[i].payroll();
     }
-    return total;
+    return substotalOfDept;
   }
     public double getSubtotalOfDept() {
-      return this.substotalOfDept;
+      return  this.substotalOfDept;
     }
 
   public static void main(String[] args) {

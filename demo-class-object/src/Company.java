@@ -37,11 +37,28 @@ public class Company {
     depts[0].add(staffC);
     System.out.println(staffC.getName() + "," + staffC.payroll());
 
-
     Companys[0].add(depts[0]);
     System.out.println(depts[0].substotalOfDept());
 
     System.out.println("--- --- --- --- ---");
+
+    Staff staffD = new Staff("Divad", 45, 500);
+    depts[1].add(staffD);
+    System.out.println(staffD.getName() + "," + staffA.payroll());
+
+    Staff staffE = new Staff("Ethan", 10, 1500);
+    depts[1].add(staffE);
+    System.out.println(staffE.getName() + "," + staffB.payroll());
+
+    Staff staffF = new Staff("Fanny", 45, 600);
+    depts[1].add(staffF);
+    System.out.println(staffF.getName() + "," + staffC.payroll());
+
+    Companys[0].add(depts[1]);
+    System.out.println(depts[1].substotalOfDept());
+
+
     System.out.println(Companys[0].name + ", " + Companys[0].depts[0].getName() + ", " + Companys[0].depts[0].getSubtotalOfDept());
+    System.out.println(Companys[0].name + ", " + Companys[0].depts[1].getName() + ", " + Companys[0].depts[1].getSubtotalOfDept());
   }
 }
