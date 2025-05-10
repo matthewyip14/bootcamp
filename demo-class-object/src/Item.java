@@ -19,7 +19,7 @@ public class Item {
     if (this.quantity > 0) {
       this.quantity--;
       return true;
-    }
+  
     return false;
   }
 

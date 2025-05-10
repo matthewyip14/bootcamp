@@ -29,7 +29,8 @@ public class Dept {
   }
 
   public static void main(String[] args) {
-    Dept[] depts = new Dept[0];
+    Dept[] depts = new Dept[1];
+    depts[0] = new Dept("Ops");
 
     Dept Ops = new Dept("Ops team");
 
@@ -39,6 +40,7 @@ public class Dept {
     Staff staff2 = new Staff("Billy", 120.0, 30);
     Ops.add(staff2);
 
+    System.out.println(depts[0].name);
     System.out.println(Ops.substotalOfDept());
 
   }

@@ -7,32 +7,33 @@ public class Company {
   }
 
   public void add(Dept newDept) {
-    Dept[] newdDepts = new Dept[this.depts.length + 1];
-    for (int i = 0; i < this.depts.length; i++) {
-      newdDepts[i] = depts[i];
-    }
-    newdDepts[newdDepts.length - 1] = newDept;
-    this.depts = newdDepts;
+    Dept[] newDepts = new Dept[this.depts.length];
+    ;
   }
   
   public static void main(String[] args) {
-    Company[] Companys = new Company[0];
+    Company[] Companys = new Company[1];
 
-    Company ABC = new Company("ABC");
+    Companys[0] = new Company("ABC");
+    System.out.println(Companys[0].name);
     
-    Dept dept1 = new Dept("Ops");
+    Dept[] depts = new Dept[2];
+
+    depts[0] = new Dept("Ops");
+    depts[1] = new Dept("Fin");
 
     Staff dept1StaffA = new Staff("Ada", 99, 40);
-    dept1.add(dept1StaffA);
+    depts[0].add(dept1StaffA);
 
     Staff dept1StaffB = new Staff("Billy", 200, 50);
-    dept1.add(dept1StaffB);
+    depts[0].add(dept1StaffB);
 
     Staff dept1StaffC = new Staff("Carol", 150, 50);
-    dept1.add(dept1StaffC);
+    depts[0].add(dept1StaffC);
 
-    ABC.add(dept1);
-    System.out.println(ABC.name, ABC.dept1.getName());
-    System.out.println(dept1.substotalOfDept());
+    Companys[0].add(depts[0]);
+
+    System.out.println(Companys[0].name);
+    
   }
 }
