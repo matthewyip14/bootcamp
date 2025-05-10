@@ -58,7 +58,11 @@ public class Company {
     System.out.println(depts[1].substotalOfDept());
 
 
-    System.out.println(Companys[0].name + ", " + Companys[0].depts[0].getName() + ", " + Companys[0].depts[0].getSubtotalOfDept());
-    System.out.println(Companys[0].name + ", " + Companys[0].depts[1].getName() + ", " + Companys[0].depts[1].getSubtotalOfDept());
+    System.out.println(Companys[0].name + ", " 
+    + Companys[0].depts[0].getName() + ", " 
+    + Companys[0].depts[0].getSubtotalOfDept());
+    System.out.println(Companys[0].name + ", " 
+    + Companys[0].depts[1].getName() + ", " 
+    + Companys[0].depts[1].getSubtotalOfDept());
   }
 }

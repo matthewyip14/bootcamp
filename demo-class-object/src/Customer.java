@@ -4,12 +4,15 @@ public class Customer {
   private Order[] orders;
 
   public Customer(long id, String name) {
-    this.orders = new Order[0];
+    this.orders = new Order[0]; // array object //this.orders = orders();
     this.id  = id;
     this.name = name;
-    //this.orders = orders();
   }
-  
+
+
+  public String getName() {
+    return this.name;
+  }
   
   public void add(Order newOrder) {
     Order[] newOrders = new Order[this.orders.length + 1];
@@ -19,16 +22,18 @@ public class Customer {
     newOrders[newOrders.length - 1] = newOrder;
     this.orders = newOrders;
   }
+  //Bigdecimal
   public boolean isVIP() {
     double total = 0.0;
     for (int i = 0; i <this.orders.length; i++) {
       total += this.orders[i].checkoutAmount();
     }
-    if (total > 100000) {
-      return true;
-    } else {
-      return false;
-    }
+   // if (total > 100_000) {
+   //   return true;
+   // } else {
+   // return false;
+   // }
+    return total > 100_000;
   }
   //main()
   // John -> many Orders -> items
@@ -37,7 +42,7 @@ public class Customer {
   public static void main(String[] args) {
     Customer[] customers = new Customer[0];
     
-    Customer john = new Customer(customers.length+1, "John");
+    Customer john = new Customer(customers.length+1, "John"); // "new" -> calling, "Customer()" constructor
     System.out.println("length order :" + john.orders.length);
 
     Order order1 = new Order();
