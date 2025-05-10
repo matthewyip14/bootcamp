@@ -1,10 +1,17 @@
 import java.math.BigDecimal;
 
 public class Staff {
-  public String name;
+  private String name;
   private double workingHour;
   private double hourlyRate;
   private double attendanceBonus;
+
+  public String getName() {
+    return this.name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public double getWorkingHour() {
     return this.workingHour;
