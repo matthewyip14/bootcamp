@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 
 public class Staff {
+  public String name;
   private double workingHour;
   private double hourlyRate;
   private double attendanceBonus;
@@ -25,7 +26,8 @@ public class Staff {
   public void setAttendanceBonus(double attendanceBonus) {
     this.attendanceBonus = attendanceBonus;
   }
-  public Staff(double workingHour, double hourlyRate) {
+  public Staff(String name,double workingHour, double hourlyRate) {
+    this.name = name;
     this.workingHour = workingHour;
     this.hourlyRate = hourlyRate;
   }
@@ -40,7 +42,7 @@ public class Staff {
   } 
   
   public static void main(String[] args) {
-    Staff staff1 = new Staff(101.0, 50);
+    Staff staff1 = new Staff("Ada", 101.0, 50);
     System.out.println(staff1.payroll());
   }
   

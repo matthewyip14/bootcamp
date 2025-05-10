@@ -1,11 +1,11 @@
 import java.math.BigDecimal;
 
 public class Dept {
-  private long deptId;
-  private String DeptName;
+  public String name;
   private Staff[] staffs;
   
-  public Dept() {
+  public Dept(String name) {
+    this.name = name;
     this.staffs = new Staff[0];
   }
   public void add(Staff newStaff) {
@@ -25,15 +25,17 @@ public class Dept {
   }
 
   public static void main(String[] args) {
-    Dept dept = new Dept();
+    Dept[] depts = new Dept[0];
 
-    Staff ada = new Staff(80.0, 50);
-    dept.add(ada);
+    Dept Ops = new Dept("Ops team");
 
-    Staff billy = new Staff(120.0, 30);
-    dept.add(billy);
+    Staff staff1 = new Staff("Ada", 80.0, 50);
+    Ops.add(staff1);
 
-    System.out.println(dept.substotalOfDept());
+    Staff staff2 = new Staff("Billy", 120.0, 30);
+    Ops.add(staff2);
+
+    System.out.println(Ops.substotalOfDept());
 
   }
 }
