@@ -31,14 +31,17 @@ public class Student {
     Student[] s = new Student[3];
     s[0] = new Student("Leo");
     s[1] = new Student("Man");
-    s[2] = new Student("Fai");
+    s[2] = new Student("Fun");
+    System.out.println(s[0].getName());
+
 
     for (int i = 0; i < Candy.getCounter(); i++) {
-      System.out.println(i % 3);
+      //System.out.println(i % 3);
       s[i % 3].add(candies[i]);
       System.out.println(s[i % 3].getName()
-      +", "+ s[i % 3].candies[i].getColor()
-      +", "+ s[i % 3].candies[i].getNumber());
+      +", "+ candies[i].getColor()
+      +", "+ candies[i].getNumber());
       }
+      //System.out.println(s[0].getName());
   }
 }
