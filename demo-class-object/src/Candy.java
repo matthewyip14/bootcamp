@@ -1,5 +1,5 @@
 public class Candy {
-  private static int counter = 0;
+  public static int counter = 0;
   // candy has color, number
   private String color;
   private int number;
@@ -21,6 +21,7 @@ public class Candy {
   public static int getCounter() {
     return counter;
   } 
+  
   public static void main(String[] args) {
     System.out.println(counter);
 

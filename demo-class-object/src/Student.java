@@ -34,7 +34,7 @@ public class Student {
     s[2] = new Student("Z");
     System.out.println(s[0].getName());
 
-
+    while (Candy.counter > 0) {
     for (int i = 0; i < Candy.getCounter(); i++) {
       //System.out.println(i % 3);
       s[i % 3].add(candies[i]);
@@ -42,6 +42,8 @@ public class Student {
       +", "+ candies[i].getColor()
       +", "+ candies[i].getNumber());
       }
-      //System.out.println(s[0].getName());
+      Candy.counter--;
+    }
+    System.out.println(Candy.counter);
   }
 }
