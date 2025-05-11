@@ -1,12 +1,12 @@
 public class Candy {
-  private static int counter = 20;
+  private static int counter = 0;
   // candy has color, number
   private String color;
   private int number;
 
   //....
   public Candy(String color, int number) {
-    
+    counter++;
     this.color = color;
     this.number = number;
   }
@@ -18,7 +18,9 @@ public class Candy {
   public int getNumber() {
     return this.number;
   }
-  //public int 
+  public static int getCounter() {
+    return counter;
+  } 
   public static void main(String[] args) {
     System.out.println(counter);
 

@@ -7,7 +7,9 @@ public class Student {
     this.name = name;
     this.candies = new Candy[0];
   }
-
+  public String getName() {
+    return this.name;
+  }
   // Menthod
   public void add(Candy newCandy) {
     Candy[] newCandies = new Candy[this.candies.length + 1];
@@ -18,10 +20,25 @@ public class Student {
     this.candies = newCandies;
   }
   // Disburibute 20 candy to 3 Students
-  for (int i = 0, i < )
+  public static void main(String[] args) {
+    Candy[] candies = new Candy[20];
+    System.out.println(Candy.getCounter());
+    for (int i = 0; i < candies.length; i++ ) {
+      candies[i] = new Candy("Pink", i + 1);
+    }
+    System.out.println(Candy.getCounter());  
+    
+    Student[] s = new Student[3];
+    s[0] = new Student("Leo");
+    s[1] = new Student("Man");
+    s[2] = new Student("Fai");
 
-
-
-
-
+    for (int i = 0; i < Candy.getCounter(); i++) {
+      System.out.println(i % 3);
+      s[i % 3].add(candies[i]);
+      System.out.println(s[i % 3].getName()
+      +", "+ s[i % 3].candies[i].getColor()
+      +", "+ s[i % 3].candies[i].getNumber());
+      }
+  }
 }
