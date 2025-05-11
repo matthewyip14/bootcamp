@@ -1,12 +1,27 @@
 public class Candy {
-  private static int count = 20;
+  private static int counter = 20;
   // candy has color, number
+  private String color;
+  private int number;
+
   //....
+  public Candy(String color, int number) {
+    
+    this.color = color;
+    this.number = number;
+  }
 
-
+  // getter
+  public String getColor() {
+    return this.color;
+  }
+  public int getNumber() {
+    return this.number;
+  }
+  //public int 
   public static void main(String[] args) {
-    Candy c1 = new Candy();
-    candy c2 = new candy();
+    System.out.println(counter);
+
 
 
     // Disburibute 20 candy to 3 Students

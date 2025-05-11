@@ -33,7 +33,8 @@ public class Child {
   //}
   //! Rewrite the definition of Child in your world.
   public boolean equals(Child child) {
-    return this.id == child.getID();
+    return this.firstName == child.getFirstName() 
+      && this.lastName == child.getLastName();
   }
   //public boolean equals(Child child) {
   //  return this.hkid.equals(child.getHKID());
