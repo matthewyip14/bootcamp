@@ -29,9 +29,9 @@ public class Student {
     System.out.println(Candy.getCounter());  
     
     Student[] s = new Student[3];
-    s[0] = new Student("Leo");
-    s[1] = new Student("Man");
-    s[2] = new Student("Fun");
+    s[0] = new Student("X");
+    s[1] = new Student("Y");
+    s[2] = new Student("Z");
     System.out.println(s[0].getName());
 
 
