@@ -34,16 +34,16 @@ public class Student {
     s[2] = new Student("Z");
     System.out.println(s[0].getName());
 
-    while (Candy.counter > 0) {
-    for (int i = 0; i < Candy.getCounter(); i++) {
+   while (Candy.counter > 0) {
+    for (int i = 0; i < candies.length; i++) {
       //System.out.println(i % 3);
-      s[i % 3].add(candies[i]);
-      System.out.println(s[i % 3].getName()
-      +", "+ candies[i].getColor()
-      +", "+ candies[i].getNumber());
-      }
-      Candy.counter--;
+    s[i % 3].add(candies[i]);
+    System.out.println(s[i % 3].getName()
+    +", "+ candies[i].getColor()
+    +", "+ candies[i].getNumber());
+    Candy.counter--;
     }
-    System.out.println(Candy.counter);
+   }
+  System.out.println(Candy.counter);
   }
 }
