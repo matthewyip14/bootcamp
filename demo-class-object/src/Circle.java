@@ -30,6 +30,14 @@ public class Circle {
     .multiply(BigDecimal.valueOf(Math.PI)) //
     .doubleValue();
   }
+
+  public static double area2(double radius1) {
+    return BigDecimal.valueOf(radius1)
+    .multiply(BigDecimal.valueOf(radius1))
+    .multiply(BigDecimal.valueOf(Math.PI))
+    .doubleValue();
+  }
+
   public double diameter() {
     return BigDecimal.valueOf(this.radius) //
     .multiply(BigDecimal.valueOf(2.0)) //
@@ -65,5 +73,6 @@ public class Circle {
     circles2[1] = new Circle(2.3, "YELLOW");
     circles2[2] = new Circle(1.9, "PINK");
 
+    System.out.println(Circle.area2(3.5)); // 38.48451000647496
   }
 }
