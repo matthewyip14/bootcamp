@@ -7,19 +7,25 @@ public class Cat extends Animal{
   // private int age;
   private String name;
 
+  public Cat(int age) {
+    super(age);
+  }
+
   public Cat(String name, int age) {
     super(age);
     this.name = name;
   }
 
+  public String getName() {
+    return this.name;
+  }
+
+  @Override
   public int getAge() {
     return super.getAge() + 10;
   }
   public int getAge2() {
     return super.getAge();
-  }
-  public String getName() {
-    return this.name;
   }
 
   public static void main(String[] args) {

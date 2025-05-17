@@ -1,9 +1,9 @@
 public class DemoInheritance {
   public static void main(String[] args) {
     // APIE
-    // A = 
-    // P =
-    // I =
-    // E =
+    // A = Abstraction
+    // P = Polymorphism
+    // I = Inheritance (Parent Class: Concrete / Abstract)
+    // E = Encapsulation
   }
 }

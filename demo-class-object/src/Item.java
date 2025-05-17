@@ -6,37 +6,36 @@ public class Item {
     this.price = price;
     this.quantity = quantity;
   }
+
+  // BigDecimal
   public double subtotal() {
     return this.price * this.quantity;
   }
-  // Setter -> setQuantity()
 
-  //! the ways of access the object's content
+  // setter -> setQuantity(10)
+
+  // ! The ways of access the object's content
   public void add() {
     this.quantity++;
   }
+
   public boolean deduct() {
     if (this.quantity > 0) {
       this.quantity--;
       return true;
-  } else {
+    }
     return false;
   }
 
   public int getQuantity() {
     return this.quantity;
   }
-  
-
-
 
   public static void main(String[] args) {
     Item itemA = new Item(99.0, 1);
     itemA.add();
     itemA.add();
     itemA.deduct();
-    System.out.println(itemA.getQuantity());
+    System.out.println(itemA.getQuantity()); // 2
   }
-
-
 }

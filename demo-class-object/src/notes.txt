@@ -1,5 +1,0 @@
-method (getter/Setter)
-
-prviate/publice
-
-return type sum()
