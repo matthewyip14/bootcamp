@@ -33,6 +33,6 @@ public class Cat extends Animal{
     System.out.println(cat.getAge()); // 23
     System.out.println(cat.getAge2()); // 13
     System.out.println(cat.getName()); // John
+    
   }
-
 }

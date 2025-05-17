@@ -10,6 +10,16 @@ public class Student {
   public String getName() {
     return this.name;
   }
+
+  // Presentation
+  //public int numberOfPink() {
+  //  int sum = 0;
+  //  for (int i = 0; i < candies.length; i++) {
+  //    sum += this.candies.getColor().equal("Pink");
+
+  //  }
+  //}
+
   // Menthod
   public void add(Candy newCandy) {
     Candy[] newCandies = new Candy[this.candies.length + 1];
