@@ -1,17 +1,24 @@
 import java.util.Objects;
 
 public class Card {
-  private char rank;
-  private char suit;
-  public Card(char rank, char suit) {
+  public static final int DIAMOND = 1;
+  public static final int CLUB = 2;
+  public static final int HEART = 3;
+  public static final int SPADE = 4;
+
+  private int rank;
+  private int suit;  // suit class
+
+
+  public Card(int rank, int suit) {
     this.rank = rank;
     this.suit = suit;
   }
 
-  public char gerRank() {
+  public int gerRank() {
     return this.rank;
   }
-  public char getSuit() {
+  public int getSuit() {
     return this.suit;
   }
   // ! Override false -> true
@@ -39,12 +46,32 @@ public class Card {
       + "rank=" + this.rank
       + ",suit=" + this.suit
       + ")";
-
+  }
   // ACE Diamond vs King Diamond -> 1
   // King Diamond vs ACE Diamond -> -1
-  public Card compareTo(Card card) {
-    // Rank
-    // Spade > Heart > Club > Diamond
+  public int compareTo(Card card) {
+    if (this.rank == card.gerRank()){
+      int result = compareTo(this.suit, card.getSuit());
+      if (result > 0)
+        return -1;
+      else if (result == 0)
+        return 0;
+      else
+        return 1;
+    }
+    return this.rank >  card.gerRank() ? -1 : 1;
   }
+  
+  public static int compareTo(char suit1, char suit2) {
+    if (suit1 == suit2)
+      return 0;
+    if (suit1 > suit2)
+      return -1;
+    return 1;
   }
+
+  public static void main(String[] args) {
+    
+  }
+
 }
