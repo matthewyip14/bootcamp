@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Dog extends Animal implements Comparable<Dog>{
@@ -51,7 +52,7 @@ public class Dog extends Animal implements Comparable<Dog>{
 
     // Comparable Approach: as long as Dog implement comparable
     // disadvantage: every class has one sorting formula ONLY, but Comparator approach can be more formula for a runtime
-    Collection.sort(dogs);
+    Collections.sort(dogs);
     System.out.println(dogs);
   }
 }

@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class SortByColor implements Comparator<Ball>{
+public class SortedByBall implements Comparator<Ball>{
   @Override
   public int compare(Ball b1, Ball b2) {
     if (b1.getColor() == Ball.Color.YELLOW)

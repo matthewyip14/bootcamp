@@ -4,6 +4,7 @@ import java.util.List;
 public class DemoArrayList {
   public static void main(String[] args) {
     String[] arr = new String[] {"abc", "def", "ijk"};
+    
     for (String s : arr) {
       System.out.println(s);
     }
@@ -56,7 +57,7 @@ public class DemoArrayList {
     System.out.println(names.indexOf("John")); // 0
     System.out.println(names.indexOf("Jennie")); // 1
     System.out.println(names.indexOf("Peter")); // -1 (not found)
-                                                            
+
     if (!names.isEmpty()) {
 
     }
@@ -88,11 +89,5 @@ public class DemoArrayList {
     System.out.println(dogs);
 
     // remove("Peter"), remove the first "Peter"
-
-    dogs.add(new Dog("Mary"));
-    System.out.println(dogs.size()); // 2
-    
-
-
   }
 }

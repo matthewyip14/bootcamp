@@ -10,7 +10,7 @@ public class IntegerPrinter {
   }
 
   public static void main(String[] args) {
-    IntegerPrinter sp = new IntegerPrinter(1);
-    sp.print(); // 1
+    IntegerPrinter ip = new IntegerPrinter(10);
+    ip.print(); // 10
   }
 }

@@ -3,16 +3,16 @@ import java.util.LinkedList;
 
 public class DemoLinkedList {
   public static void main(String[] args) {
-    // ArrayList and LinkedList
+    // ArrayList vs LinkedList
 
-    //Same:
+    // Same:
     // 1. with Ordering
+    // 2. store a set of values
 
-    // Difference
-    // 1. Underlying Data structure: array cs linkedlist
+    // Difference:
+    // 1. Underlying Data structure: array vs linkedlist
     // 2. Scenario: get(), add(), remove()
-
-
+    
     LinkedList<String> fruits = new LinkedList<>();
     fruits.add("apple");
     fruits.add("orange"); // apple -> orange
@@ -28,12 +28,10 @@ public class DemoLinkedList {
     }
 
     if (fruits.contains("apple")) {
-      
+
     }
     fruits.addFirst("waterlemon");
-    System.out.println(fruits); // [waterlemon, apple, orange, lemon]
+    System.out.println(fruits);
 
-    ArrayList<String> animals = new ArrayList<>();
-    animals.add("Cat");
   }
 }
