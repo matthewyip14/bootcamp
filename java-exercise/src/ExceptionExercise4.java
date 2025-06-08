@@ -25,6 +25,7 @@ public class ExceptionExercise4 {
 
   public static class UserRegistrationException extends RuntimeException {
     // code here ...
+
   }
 
   // Call validateUsername(), validatePassword() and validateEmail()
@@ -34,11 +35,28 @@ public class ExceptionExercise4 {
   public static void registerUser(String username, String password,
       String email) {
     // code here ...
-  }
-
+    boolean invalidFound = false;
+    try {
+      validateUsername(username);
+    } catch (IllegalArgumentException e) {
+      invalidFound = true;
+      throw UserRegistrationException(e.getMessage());
+    }
+    try {
+      validatePassword(password);
+    } catch (IllegalArgumentException e) {
+      throw UserRegistrationException(e.getMessage());
+    }
+    try {
+      validateEmail(email);
+    } catch (IllegalArgumentException e) {
+      throw UserRegistrationException(e.getMessage());
+    }
   // Throw IllegalArgumentException if String username is null or empty string
   private static void validateUsername(String username) {
     // code here ...
+    if (username == null || username.isEmpty())
+      throw new IllegalArgumentException("Invalid Username");
   }
 
   // Throw IllegalArgumentException
@@ -46,6 +64,11 @@ public class ExceptionExercise4 {
   // any special characters of !@$&_
   private static void validatePassword(String password) {
     // code here ...
+    if (password == null || password.length() < 8
+      || (!password.contains("!") && !password.contains("@")
+        && !password.contains("$") && !password.contains("&")
+        && !password.contains("_")))
+      throw new 
   }
 
   // Throw IllegalArgumentException if String email is null or it does not contain character @
