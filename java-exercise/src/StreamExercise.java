@@ -1,6 +1,10 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StreamExercise {
@@ -11,6 +15,7 @@ public class StreamExercise {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     List<Integer> numbers1 = numbers.stream()
       .filter(n -> n % 2 == 0)
+      .map(n -> n * n)
       .sorted(Collections.reverseOrder())
       .collect(Collectors.toList());
     System.out.println(numbers1);
@@ -20,29 +25,51 @@ public class StreamExercise {
     // Task: Given a list of names, filter the names that start with "A" and collect them into a list.
     List<String> names =
         Arrays.asList("Alice", "Bob", "Annie", "David", "Alex");
+    List<String> names1 = names.stream()
+      .filter(N -> N.startsWith("A"))
+      .collect(Collectors.toList());
+    System.out.println(names1);
     // Output: [Alice, Annie, Alex]
 
     // 3. Finding Maximum and Minimum
     // Task: Given a list of integers, find the maximum and minimum values using Streams.
     List<Integer> numbers2 = Arrays.asList(10, 20, 5, 30, 15);
+    int maxValue = numbers2.stream().max(Comparator.naturalOrder()).orElseThrow();
+    System.out.println("Max: " + maxValue);
     // Output: Max: 30
+    int minValue = numbers2.stream().min(Comparator.naturalOrder()).orElseThrow();
+    System.out.println("Min: " + minValue);
     // Output: Min: 5
 
     // 4. Mapping to a List of Lengths
     // Task: Given a list of strings, map each string to its length and collect the lengths into a
     // List<Integer>
     List<String> words = Arrays.asList("apple", "banana", "pear");
+    List<Integer> wordsOfLength = words.stream()
+      .map(w -> w.length())
+      .collect(Collectors.toList());
+    System.out.println(wordsOfLength);
     // Output: [5, 6, 4] (List)
 
     // 5. Counting Elements
     // Task: Given a list of strings, count how many strings have a length greater than 3.
-    // List<String> words = Arrays.asList("hi", "hello", "world", "java", "stream");
+    List<String> words2 = Arrays.asList("hi", "hello", "world", "java", "stream");
+    long count = words2.stream()
+      .filter(W -> { 
+        return W.length() > 3;
+      }).count();
+    System.out.println(count);
     // Output: 4
 
     // 6. Filtering and Collecting to a Set
     // Task: Given a list of numbers, filter out all numbers greater than 10 and collect them into a
     // Set.
     List<Integer> numbers3 = Arrays.asList(5, 10, 15, 20, 10, 5);
+    Set<Integer> n3 = numbers3.stream()
+      .filter(U -> U > 10)
+      .sorted(Comparator.naturalOrder())
+      .collect(Collectors.toSet());
+    System.out.println(n3);
     // // Output: [15, 20]
 
     // 7. Mapping to a Map (Key-Value Pairs)
@@ -52,7 +79,15 @@ public class StreamExercise {
     // Create Student Class
     // new Student("Alice", 85)
     // new Student("Bob", 75)
+     
+    List<Student> students = new ArrayList<>();
+    students.add(new Student("Alice", 85));
+    students.add(new Student("Bob", 75));
 
+    Map<String, Integer> s1 = students.stream()
+      .collect(Collectors.toMap(Student::getName, Student::getScore));
+    System.out.println(s1);
+    
     // Output: {Alice=85, Bob=75}
 
     // 8. Filtering and Mapping to a List of Objects
@@ -229,6 +264,4 @@ public class StreamExercise {
         Arrays.asList("stream", "filter", "map", "sorted", "collect");
     // Output: 28
   }
-} {
-  
-}
+} 
