@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamExercise {
@@ -83,10 +84,11 @@ public class StreamExercise {
     List<Student> students = new ArrayList<>();
     students.add(new Student("Alice", 85));
     students.add(new Student("Bob", 75));
-
-    Map<String, Integer> s1 = students.stream()
-      .collect(Collectors.toMap(Student::getName, Student::getScore));
-    System.out.println(s1);
+   
+    Map<String, Integer> s2 = students.stream()
+      .collect(Collectors.toMap(st -> st.getName(), st -> st.getScore()));
+      // .collect(Collectors.toMap(Student::getName, Student::getScore));
+    System.out.println(s2);
     // Output: {Alice=85, Bob=75}
 
     // 8. Filtering and Mapping to a List of Objects
@@ -101,10 +103,11 @@ public class StreamExercise {
     // new Employee("John", 65000)
     // new Employee("Jane", 55000)
     // new Employee("Doe", 40000)
-    List<Employee> employees2 =employees.stream()
-      .filter(e -> e.getSalary() < 50000)
-      .map(e ->e.getName())
+    List<String> employees2 =employees.stream()
+      .filter(e -> e.getSalary() > 50000)
+      .map(e -> e.getName())
       .collect(Collectors.toList());
+    System.out.println(employees2);
     // Output: [John, Jane]
 
     // 9. Grouping and Collecting to a Map (Group by Age)
@@ -112,10 +115,18 @@ public class StreamExercise {
     // into a Map<Integer, List<String>> where the key is the age and the value is a list of names.
 
     // Create Person Class
+    List<Person> persons = new ArrayList<>();
+    persons.add(new Person("Alice", 30));
+    persons.add(new Person("Bob", 25));
+    persons.add(new Person("Charlie", 30));
     // new Person("Alice", 30),
     // new Person("Bob", 25),
     // new Person("Charlie", 30)
 
+    Map<Integer, List<String>> persons2 = persons.stream()
+      .map(p -> p.getAge(), p -> p.getName())
+      .collect(Collectors.toList());
+      
     // Output: {30=[Alice, Charlie], 25=[Bob]} (Map)
 
     // 10. Partitioning and Collecting to a Map (Partition by Gender)
@@ -270,4 +281,9 @@ public class StreamExercise {
         Arrays.asList("stream", "filter", "map", "sorted", "collect");
     // Output: 28
   }
-} 
+  public record Person(String name, int age) {
+  }
+  
+    
+  
+}
