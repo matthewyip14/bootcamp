@@ -1,6 +1,6 @@
 // ! Java 16 record
 public record Staff(String name, int age) {
-  public
+  private static String animal = "Pig";
   // private String name;
   // private int age;
 
@@ -12,17 +12,18 @@ public record Staff(String name, int age) {
   // public String getName() {
   //   return this.name;
   // }
+
   // public int getAge() {
   //   return this.age;
   // }
 
   // No Setter
 
-  // Scenario: get data from database, and them send it over to your client
+  // Scenario: Get data from database, and then send it over to your client
 
   // customer instance method (Presentation)
   public String nickname() {
-    return "Pig " + this.name;
+    return animal + " " + this.name; 
   }
 
   public static int sum(int x, int y) {
