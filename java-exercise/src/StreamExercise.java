@@ -87,7 +87,6 @@ public class StreamExercise {
     Map<String, Integer> s1 = students.stream()
       .collect(Collectors.toMap(Student::getName, Student::getScore));
     System.out.println(s1);
-    
     // Output: {Alice=85, Bob=75}
 
     // 8. Filtering and Mapping to a List of Objects
@@ -95,10 +94,17 @@ public class StreamExercise {
     // map them to a list of their names.
 
     // Create Employee Class
+    List<Employee> employees = new ArrayList<>();
+    employees.add(new Employee("John", 65000));
+    employees.add(new Employee("Jane", 55000));
+    employees.add(new Employee("Doe", 40000));
     // new Employee("John", 65000)
     // new Employee("Jane", 55000)
     // new Employee("Doe", 40000)
-
+    List<Employee> employees2 =employees.stream()
+      .filter(e -> e.getSalary() < 50000)
+      .map(e ->e.getName())
+      .collect(Collectors.toList());
     // Output: [John, Jane]
 
     // 9. Grouping and Collecting to a Map (Group by Age)
