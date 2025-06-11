@@ -1,14 +1,22 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamExercise {
+  public record Person(String name, int age) {}
+  public record Staff(String name, Gender gender) {}
+  public enum Gender { Male, Female,;}
+
+  // public  Boolean isMale(){
+  //   if Gender.Male = true;
+  // }
   public static void main(String[] args) {
     // 1. Basic Stream Operations
     // Task: Given a list of integers, use a stream to find all the even numbers, square them, and then
@@ -19,7 +27,7 @@ public class StreamExercise {
       .map(n -> n * n)
       .sorted(Collections.reverseOrder())
       .collect(Collectors.toList());
-    System.out.println(numbers1);
+    System.out.println(numbers1); // [100, 64, 36, 16, 4]
     // Output: [100, 64, 36, 16, 4]
 
     // 2. Filtering and Collecting
@@ -29,17 +37,17 @@ public class StreamExercise {
     List<String> names1 = names.stream()
       .filter(N -> N.startsWith("A"))
       .collect(Collectors.toList());
-    System.out.println(names1);
+    System.out.println(names1); // [Alice, Annie, Alex]
     // Output: [Alice, Annie, Alex]
 
     // 3. Finding Maximum and Minimum
     // Task: Given a list of integers, find the maximum and minimum values using Streams.
     List<Integer> numbers2 = Arrays.asList(10, 20, 5, 30, 15);
     int maxValue = numbers2.stream().max(Comparator.naturalOrder()).orElseThrow();
-    System.out.println("Max: " + maxValue);
+    System.out.println("Max: " + maxValue); // Max: 30
     // Output: Max: 30
     int minValue = numbers2.stream().min(Comparator.naturalOrder()).orElseThrow();
-    System.out.println("Min: " + minValue);
+    System.out.println("Min: " + minValue); // Min: 5
     // Output: Min: 5
 
     // 4. Mapping to a List of Lengths
@@ -49,7 +57,7 @@ public class StreamExercise {
     List<Integer> wordsOfLength = words.stream()
       .map(w -> w.length())
       .collect(Collectors.toList());
-    System.out.println(wordsOfLength);
+    System.out.println(wordsOfLength); // [5, 6, 4]
     // Output: [5, 6, 4] (List)
 
     // 5. Counting Elements
@@ -59,7 +67,7 @@ public class StreamExercise {
       .filter(W -> { 
         return W.length() > 3;
       }).count();
-    System.out.println(count);
+    System.out.println(count); // 4
     // Output: 4
 
     // 6. Filtering and Collecting to a Set
@@ -70,7 +78,7 @@ public class StreamExercise {
       .filter(U -> U > 10)
       .sorted(Comparator.naturalOrder())
       .collect(Collectors.toSet());
-    System.out.println(n3);
+    System.out.println(n3); // [20, 15]
     // // Output: [15, 20]
 
     // 7. Mapping to a Map (Key-Value Pairs)
@@ -88,7 +96,7 @@ public class StreamExercise {
     Map<String, Integer> s2 = students.stream()
       .collect(Collectors.toMap(st -> st.getName(), st -> st.getScore()));
       // .collect(Collectors.toMap(Student::getName, Student::getScore));
-    System.out.println(s2);
+    System.out.println(s2); // {Bob=75, Alice=85}
     // Output: {Alice=85, Bob=75}
 
     // 8. Filtering and Mapping to a List of Objects
@@ -107,7 +115,7 @@ public class StreamExercise {
       .filter(e -> e.getSalary() > 50000)
       .map(e -> e.getName())
       .collect(Collectors.toList());
-    System.out.println(employees2);
+    System.out.println(employees2); // [John, Jane]
     // Output: [John, Jane]
 
     // 9. Grouping and Collecting to a Map (Group by Age)
@@ -115,18 +123,19 @@ public class StreamExercise {
     // into a Map<Integer, List<String>> where the key is the age and the value is a list of names.
 
     // Create Person Class
-    List<Person> persons = new ArrayList<>();
-    persons.add(new Person("Alice", 30));
-    persons.add(new Person("Bob", 25));
-    persons.add(new Person("Charlie", 30));
+    List<Person> persons = List.of(
+    new Person("Alice", 30),
+    new Person("Bob", 25),
+    new Person("Charlie", 30));
     // new Person("Alice", 30),
     // new Person("Bob", 25),
     // new Person("Charlie", 30)
 
     Map<Integer, List<String>> persons2 = persons.stream()
-      .map(p -> p.getAge(), p -> p.getName())
-      .collect(Collectors.toList());
-      
+      .collect(Collectors.groupingBy(P1 -> P1.age(),
+       Collectors.mapping(P1 -> P1.name(), 
+       Collectors.toList())));
+    System.out.println(persons2); // {25=[Bob], 30=[Alice, Charlie]}
     // Output: {30=[Alice, Charlie], 25=[Bob]} (Map)
 
     // 10. Partitioning and Collecting to a Map (Partition by Gender)
@@ -134,10 +143,18 @@ public class StreamExercise {
     // and female, and collect the result into a Map<Boolean, List<Person>>.
 
     // Create Staff Class
+    List<Staff> staffs = List.of(
+    new Staff("Alice", Gender.Female),
+    new Staff("Bob", Gender.Male),
+    new Staff("Charlie", Gender.Male));
     // new Staff("Alice", Gender.Female)
     // new Staff("Bob", Gender.Male)
     // new Staff("Charlie", Gender.Male)
-
+    Map<Boolean, List<String>> staffs2 = staffs.stream()
+      .collect(Collectors.partitioningBy(S -> S.gender() == Gender.Male,
+      Collectors.mapping(S -> S.name(), 
+      Collectors.toList())));
+    System.out.println(staffs2); // {false=[Alice], true=[Bob, Charlie]}
     // Output: {false=[Alice], true=[Bob, Charlie]} (Map)
 
     // 11. Filtering, Mapping, and Collecting to a List
@@ -145,27 +162,45 @@ public class StreamExercise {
     // by 2, and collect the result into a List.
 
     List<Integer> numbers4 = Arrays.asList(5, 15, 20, 7, 30);
+    List<Integer> N4 = numbers4.stream()
+      .filter(n -> n > 10)
+      .map(n -> n * 2)
+      .collect(Collectors.toList());
+    System.out.println(N4);
     // Output: [30, 40, 60]
 
     // 12. Mapping to a Custom Object and Collecting to a List
     // Task: Given a list of names and a constant default value, map each name to a Person object (name
     // and default value for age) and collect the result into a list.
 
-    // List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
-    // int defaultAge = 30;
+     List<String> names2 = Arrays.asList("Alice", "Bob", "Charlie");
+     int defaultAge = 30;
+     List<Person> persons3 = names2.stream()
+      .map(name -> new Person(name, defaultAge))
+      .collect(Collectors.toList());
+    System.out.println(persons3); // [Person[name=Alice, age=30], Person[name=Bob, age=30], Person[name=Charlie, age=30]]
+
     // Output: [Person(name=Alice, age=30), Person(name=Bob, age=30), Person(name=Charlie, age=30)]
 
     // 13. Mapping and Collecting to a Deque
     // Task: Given a list of words, map each word to its uppercase form and collect the result into a
     // Deque.
 
-    // List<String> words = Arrays.asList("hello", "world", "java");
-    // Output: [HELLO, WORLD, JAVA] (Deque)
+    List<String> words3 = Arrays.asList("hello", "world", "java");
+    Deque<String> words4 = words3.stream()
+      .map(w -> w.toUpperCase())
+      .collect(Collectors.toCollection(() -> new ArrayDeque<>()));
+    System.out.println(words4); // [HELLO, WORLD, JAVA]
+      // Output: [HELLO, WORLD, JAVA] (Deque)
 
     // 14. Transforming and Collecting to an Array
     // Task: Given a list of integers, square each number and collect the result into an array.
 
-    // List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
+    List<Integer> numbers7 = Arrays.asList(1, 2, 3, 4);
+    ArrayList<Integer> numbers6 = numbers7.stream()
+      .map(NU -> NU * NU)
+      .collect(Collectors.toCollection(() -> new ArrayList<>()));
+    System.out.println(numbers6);
     // Output: [1, 4, 9, 16]
 
     // 15. Map and Reduce
@@ -281,8 +316,7 @@ public class StreamExercise {
         Arrays.asList("stream", "filter", "map", "sorted", "collect");
     // Output: 28
   }
-  public record Person(String name, int age) {
-  }
+  
   
     
   
