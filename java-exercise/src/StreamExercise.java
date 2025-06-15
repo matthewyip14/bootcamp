@@ -6,12 +6,16 @@ import java.util.Comparator;
 import java.util.Deque;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StreamExercise {
   public record Person(String name, int age) {}
   public record Staff(String name, Gender gender) {}
+  public record Product(String name, int price) {}
+  public record Worker(String name, String department) {}
+  public record Children(String name, int score) {}
   public enum Gender { Male, Female,;}
 
   // public  Boolean isMale(){
@@ -208,10 +212,18 @@ public class StreamExercise {
     // total price of all products.
 
     // Create Product Class
+    List<Product> products = List.of(
+    new Product("Book", 10),
+    new Product("Pen", 5),
+    new Product("Notebook", 7));
     // new Product("Book", 10)
     // new Product("Pen", 5)
     // new Product("Notebook", 7)
 
+    int totalPrice = products.stream()
+      .map(p -> p.price())
+      .reduce(0, Integer::sum);
+    System.out.println(totalPrice);
     // Output: 22
 
     // 16. Grouping
@@ -219,17 +231,29 @@ public class StreamExercise {
     // employees by department.
 
     // Create Worker Class
+    List<Worker> workers = List.of(
+    new Worker("Alice", "HR"),
+    new Worker("Bob", "IT"),
+    new Worker("Charlie", "HR"),
+    new Worker("David", "IT"));
     // new Worker("Alice", "HR")
     // new Worker("Bob", "IT")
     // new Worker("Charlie", "HR")
     // new Worker("David", "IT")
 
+    Map<String, List<String>> sortedByDept = workers.stream()
+       .collect(Collectors.groupingBy(w -> w.department(),
+       Collectors.mapping(w -> w.name(),
+       Collectors.toList())));
+    System.out.println(sortedByDept);
     // Output: {HR=[Alice, Charlie], IT=[Bob, David]}
 
     // 17. Parallel Streams
     // Task: Given a list of numbers, use a parallel stream to calculate the sum of all elements.
     List<Integer> numbers5 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
+      int sum = numbers5.parallelStream()
+        .reduce(0,Integer::sum);
+    System.out.println(sum);
     // Output: 55
 
 
@@ -243,7 +267,12 @@ public class StreamExercise {
         Arrays.asList(7, 8, 9) //
     );
     // Output: [6, 7, 8, 9]
-
+    List<Integer> greaterThan5 = listOfIntegers.stream()
+      .flatMap(List::stream)
+      .filter(n -> n > 5)
+      .collect(Collectors.toList());
+    System.out.println(greaterThan5);
+    
     // 19. Distinct and Sorting
     // Task: Given a list of strings with some duplicates, remove the duplicates and return the result
     // in alphabetical order.
@@ -251,7 +280,11 @@ public class StreamExercise {
     List<String> fruits =
         Arrays.asList("apple", "banana", "apple", "orange", "banana", "grape");
     // Output: [apple, banana, grape, orange]
-
+    List<String> fruits2 = fruits.stream()
+      .distinct()
+      .sorted()
+      .collect(Collectors.toList());
+    System.out.println(fruits2); 
     // 20. Partitioning By
     // Task: Given a list of Childrens with their scores, partition the Childrens into passing and
     // failing
@@ -259,23 +292,40 @@ public class StreamExercise {
     // Create Student first.
 
     // Create Children Class
+    List<Children> childrens = List.of(
+      new Children("Alice", 45),
+      new Children("Bob", 55),
+      new Children("Charlie", 40),
+      new Children("David", 70));
     // new Children("Alice", 45)
     // new Children("Bob", 55)
     // new Children("Charlie", 40)
     // new Children("David", 70)
 
+    Map<Boolean, List<String>> sortedByPass = childrens.stream()
+      .collect(Collectors.partitioningBy(
+        c1 -> c1.score() >= 50,
+        Collectors.mapping(c1 -> c1.name(),
+        Collectors.toList())));
+    System.out.println(sortedByPass); 
     // Output: {false=[Alice, Charlie], true=[Bob, David]}
 
     // 21. Joining Strings
     // Task: Given a list of words, join them into a single string separated by commas.
 
     List<String> languages = Arrays.asList("Java", "Python", "Rust", "R", "Go");
+    String sentence = languages.stream()
+      .collect(Collectors.joining(", "));
+    System.out.println(sentence);
     // Output: "Java, Python, Rust, R, Go"
 
     // 22. Find First and Any
     // Task: Given a list of integers, find the first number that is divisible by 3.
     List<Integer> ages = Arrays.asList(4, 7, 9, 12, 16, 21);
-
+    Optional<Integer> number8 = ages.stream()
+      .filter(a -> a % 3 == 0)
+      .findFirst();
+    System.out.println(number8);
     // Output: 9
 
     // 23. Limit and Skip
@@ -316,8 +366,4 @@ public class StreamExercise {
         Arrays.asList("stream", "filter", "map", "sorted", "collect");
     // Output: 28
   }
-  
-  
-    
-  
 }
