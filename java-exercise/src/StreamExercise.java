@@ -4,10 +4,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamExercise {
@@ -332,6 +335,11 @@ public class StreamExercise {
     // Task: Given a list of numbers, skip the first 3 elements and return the next 5 elements.
 
     List<Integer> elements = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    List<Integer> newElements = elements.stream()
+      .skip(3)
+      .limit(5)
+      .collect(Collectors.toList());
+    System.out.println(newElements);
     // Output: [4, 5, 6, 7, 8]
 
     // 24. Peek
@@ -339,6 +347,11 @@ public class StreamExercise {
     // intermediate results to the console.
 
     List<Integer> amounts = Arrays.asList(1, 2, 3, 4);
+    List<Integer> doubled = amounts.stream()
+      .map(a -> a * 2)
+      .peek(a -> System.out.println(a))
+      .collect(Collectors.toList());
+    System.out.println(doubled);
     // Intermediate output: 2, 4, 6, 8
     // Final Output: [2, 4, 6, 8]
 
@@ -347,15 +360,43 @@ public class StreamExercise {
     // Handle the case where no such string exists using Optional.
 
     List<String> animals = Arrays.asList("cat", "tiger", "panda", "dog");
+    Optional<String> nameLongerThan4 = animals.stream()
+      .filter( n -> n.length() > 4 )
+      .findFirst();
+    System.out.println(nameLongerThan4);
+    
     // Output: Optional[tiger]
 
     List<String> animals2 = Arrays.asList("cat", "dog", "bird");
+    Optional<String> nameLongerThan4Again = animals2.stream()
+      .filter( n -> n.length() > 4 )
+      .findFirst();
+    System.out.println(nameLongerThan4Again);
     // Output: Optional.empty
 
     // 26. Custom Collector
     // Task: Create a custom collector that collects the elements of a stream and remove all duplicates
 
     List<Integer> duplicates = Arrays.asList(2, 1, 2, 3, 4, 3, 5, 5, 6);
+    Collector<Integer, Set<Integer>, Set<Integer>> customCollector = 
+      Collector.of(
+       () -> new TreeSet<Integer>(),
+        (set, element) -> set.add(element),
+        (left, right) -> {
+          left.addAll(right);
+          return left;
+        }
+      );
+
+    Set<Integer> result = duplicates.stream()
+        .collect(customCollector);
+    System.out.println(result);
+
+    List<Integer> sortedUnique = duplicates.stream()
+        .distinct()
+        .sorted()
+        .collect(Collectors.toList());
+    System.out.println(sortedUnique);
     // Output: [1, 2, 3, 4, 5, 6] (Set)
 
     // 27. String Length Calculation
@@ -364,6 +405,11 @@ public class StreamExercise {
 
     List<String> keywords =
         Arrays.asList("stream", "filter", "map", "sorted", "collect");
+    int totalLength = keywords.stream()
+      .mapToInt(s -> s.length())
+      .sum();
+    System.out.println(totalLength);
+
     // Output: 28
   }
 }
